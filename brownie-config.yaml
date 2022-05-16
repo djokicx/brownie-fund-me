@@ -1,0 +1,24 @@
+dependencies:
+# < organization/repo@version >
+# telling brownie where to find the repo on github
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+  # when it compiles need to remap x = y
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+dotenv: .env
+networks:
+  rinkeby:
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: true
+  mainnet-fork:
+    eth_usd_price_feed: '0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419'
+    verify: false
+  ganache-local:
+    verify: false
+  development:
+    verify: false
+wallets:
+  from_key: ${PRIVATE_KEY}
+
